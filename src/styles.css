@@ -39,11 +39,19 @@ button {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   gap: 24px;
   align-items: end;
   min-height: 220px;
   padding: 46px 0 18px;
+}
+
+.header-tools {
+  align-self: start;
+}
+
+.language-select {
+  min-width: 160px;
 }
 
 .eyebrow,
@@ -514,6 +522,10 @@ input:disabled {
   .hero,
   .workbench {
     grid-template-columns: 1fr;
+  }
+
+  .header-tools {
+    align-self: stretch;
   }
 
   .status-panel {

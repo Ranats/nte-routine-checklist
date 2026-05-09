@@ -2,6 +2,8 @@ export type RoutineType = "daily" | "weekly";
 
 export type ServerRegion = "asia" | "america" | "europe" | "custom";
 
+export type Language = "en" | "ja" | "zh";
+
 export type ChecklistItem = {
   id: string;
   title: string;
