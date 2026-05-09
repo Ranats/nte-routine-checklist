@@ -58,6 +58,7 @@ Deploy the generated `dist/` directory to Netlify. PWA behavior requires `localh
 The MVP does not include ads. It only reserves a passive sponsored area. Ko-fi and GitHub Sponsors links can be enabled with build-time environment variables. Before adding AdSense, AdMob, analytics, or any third-party SDK, update `PRIVACY.md`, add consent handling where required, and avoid ad placements that interfere with checkbox taps.
 
 See `DEPLOYMENT.md`, `MONETIZATION.md`, and `RELEASE_CHECKLIST.md` before publishing.
+For AdSense preparation, see `ADSENSE_READINESS.md`.
 
 ## Current Source Snapshot
 
