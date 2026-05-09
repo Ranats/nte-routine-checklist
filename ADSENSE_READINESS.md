@@ -15,6 +15,11 @@ https://nte-routine-checklist.netlify.app/
 - AdSense script is not loaded unless both deployment variables are set:
   - `VITE_ADSENSE_CLIENT_ID`
   - `VITE_ADSENSE_SLOT_ID`
+- Site review script is present in `index.html`:
+
+```html
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2527726607213346" crossorigin="anonymous"></script>
+```
 
 ## Before Applying
 
@@ -31,7 +36,7 @@ https://nte-routine-checklist.netlify.app/
 Set these Netlify environment variables:
 
 ```text
-VITE_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
+VITE_ADSENSE_CLIENT_ID=ca-pub-2527726607213346
 VITE_ADSENSE_SLOT_ID=1234567890
 ```
 

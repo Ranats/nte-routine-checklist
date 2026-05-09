@@ -33,7 +33,7 @@ VITE_GITHUB_SPONSORS_URL=https://github.com/sponsors/Ranats?frequency=recurring&
 AdSense should stay empty until the site is approved:
 
 ```text
-VITE_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
+VITE_ADSENSE_CLIENT_ID=ca-pub-2527726607213346
 VITE_ADSENSE_SLOT_ID=1234567890
 ```
 

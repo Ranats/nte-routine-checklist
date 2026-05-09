@@ -1,5 +1,5 @@
 export const MONETIZATION = {
-  adsenseClientId: import.meta.env.VITE_ADSENSE_CLIENT_ID ?? "",
+  adsenseClientId: import.meta.env.VITE_ADSENSE_CLIENT_ID ?? "ca-pub-2527726607213346",
   adsenseSlotId: import.meta.env.VITE_ADSENSE_SLOT_ID ?? "",
   kofiUrl: import.meta.env.VITE_KOFI_URL ?? "https://ko-fi.com/ranats",
   githubSponsorsUrl:
