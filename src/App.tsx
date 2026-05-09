@@ -15,7 +15,7 @@ import {
   Upload,
 } from "lucide-react";
 import { CONTENT_REVIEW } from "./data/contentMeta";
-import { MONETIZATION, hasSupportLinks } from "./data/monetization";
+import { MONETIZATION, hasAdSenseConfig, hasSupportLinks } from "./data/monetization";
 import { PRESET_ITEMS } from "./data/presets";
 import {
   LANGUAGES,
@@ -47,6 +47,7 @@ function App() {
   const [language, setLanguage] = useState<Language>(() => detectLanguage());
   const importRef = useRef<HTMLInputElement | null>(null);
   const t = messages[language];
+  const adSenseEnabled = hasAdSenseConfig();
 
   useEffect(() => {
     saveAppData(data);
@@ -326,7 +327,7 @@ function App() {
           </div>
           <div>
             <span className="meta-label">{t.safetyPosture}</span>
-            <strong>{t.safetyValue}</strong>
+            <strong>{adSenseEnabled ? t.safetyValueWithAds : t.safetyValue}</strong>
           </div>
         </div>
         <div className="source-list">
@@ -519,9 +520,7 @@ function App() {
         </section>
       ) : null}
 
-      <aside className="ad-slot" aria-label={t.adSlotLabel}>
-        <span>{t.adSlotText}</span>
-      </aside>
+      <AdSlot language={language} enabled={adSenseEnabled} />
 
       {hasSupportLinks() ? (
         <section className="support-panel" aria-label={t.supportLabel}>
@@ -574,6 +573,61 @@ function ProgressRing({ label, done, total }: ProgressRingProps) {
         {label} {done}/{total}
       </small>
     </div>
+  );
+}
+
+type AdSlotProps = {
+  language: Language;
+  enabled: boolean;
+};
+
+function AdSlot({ language, enabled }: AdSlotProps) {
+  const t = messages[language];
+
+  useEffect(() => {
+    if (!enabled) return;
+    const scriptId = "adsbygoogle-script";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.async = true;
+      script.crossOrigin = "anonymous";
+      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(
+        MONETIZATION.adsenseClientId,
+      )}`;
+      document.head.appendChild(script);
+    }
+
+    const ads = window as Window & { adsbygoogle?: unknown[] };
+    ads.adsbygoogle = ads.adsbygoogle || [];
+    window.setTimeout(() => {
+      try {
+        ads.adsbygoogle?.push({});
+      } catch {
+        // AdSense can throw before approval, with ad blockers, or on localhost.
+      }
+    }, 0);
+  }, [enabled]);
+
+  if (!enabled) {
+    return (
+      <aside className="ad-slot" aria-label={t.adSlotLabel}>
+        <span>{t.adSlotText}</span>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="ad-slot ad-slot-live" aria-label={t.adSlotLabel}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={MONETIZATION.adsenseClientId}
+        data-ad-slot={MONETIZATION.adsenseSlotId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </aside>
   );
 }
 

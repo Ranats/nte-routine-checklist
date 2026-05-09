@@ -7,7 +7,7 @@ This MVP is local-only.
 - No email address collection.
 - No screenshot upload.
 - No analytics SDK.
-- No ad SDK.
+- No ad SDK unless AdSense is explicitly enabled through deployment environment variables.
 - No external API calls.
 - Checklist state, settings, and hidden/custom items are stored in browser `localStorage`.
 - Export and import only handle local JSON files selected by the user.

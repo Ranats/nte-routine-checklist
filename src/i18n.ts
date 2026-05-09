@@ -26,6 +26,7 @@ type Messages = {
   appVersion: string;
   safetyPosture: string;
   safetyValue: string;
+  safetyValueWithAds: string;
   checklistSwitcher: string;
   resetInfo: string;
   nextReset: string;
@@ -90,6 +91,7 @@ export const messages: Record<Language, Messages> = {
     appVersion: "App version",
     safetyPosture: "Safety posture",
     safetyValue: "Local-only / no ad SDK",
+    safetyValueWithAds: "Local-only data / ad-supported",
     checklistSwitcher: "Checklist switcher",
     resetInfo: "Reset information",
     nextReset: "Next reset",
@@ -152,6 +154,7 @@ export const messages: Record<Language, Messages> = {
     appVersion: "アプリ版",
     safetyPosture: "安全性の方針",
     safetyValue: "ローカル保存のみ / 広告SDKなし",
+    safetyValueWithAds: "データはローカル保存 / 広告あり",
     checklistSwitcher: "チェックリスト切り替え",
     resetInfo: "リセット情報",
     nextReset: "次のリセット",
@@ -213,6 +216,7 @@ export const messages: Record<Language, Messages> = {
     appVersion: "应用版本",
     safetyPosture: "安全状态",
     safetyValue: "仅本地存储 / 无广告SDK",
+    safetyValueWithAds: "数据仅本地存储 / 有广告支持",
     checklistSwitcher: "清单切换",
     resetInfo: "重置信息",
     nextReset: "下次重置",

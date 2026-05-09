@@ -450,6 +450,16 @@ input:disabled {
   border-style: dashed;
 }
 
+.ad-slot-live {
+  border-style: solid;
+  min-height: 96px;
+}
+
+.adsbygoogle {
+  width: 100%;
+  min-height: 90px;
+}
+
 .support-panel {
   display: flex;
   gap: 14px;

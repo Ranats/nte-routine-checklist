@@ -34,6 +34,7 @@ AdSense should stay empty until the site is approved:
 
 ```text
 VITE_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX
+VITE_ADSENSE_SLOT_ID=1234567890
 ```
 
 Optional hosting status message:

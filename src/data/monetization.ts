@@ -1,5 +1,6 @@
 export const MONETIZATION = {
   adsenseClientId: import.meta.env.VITE_ADSENSE_CLIENT_ID ?? "",
+  adsenseSlotId: import.meta.env.VITE_ADSENSE_SLOT_ID ?? "",
   kofiUrl: import.meta.env.VITE_KOFI_URL ?? "https://ko-fi.com/ranats",
   githubSponsorsUrl:
     import.meta.env.VITE_GITHUB_SPONSORS_URL ??
@@ -9,4 +10,8 @@ export const MONETIZATION = {
 
 export function hasSupportLinks() {
   return Boolean(MONETIZATION.kofiUrl || MONETIZATION.githubSponsorsUrl);
+}
+
+export function hasAdSenseConfig() {
+  return Boolean(MONETIZATION.adsenseClientId && MONETIZATION.adsenseSlotId);
 }
