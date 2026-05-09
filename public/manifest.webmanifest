@@ -1,0 +1,16 @@
+{
+  "name": "NTE Routine Checklist",
+  "short_name": "NTE Checklist",
+  "description": "Unofficial local-first daily and weekly checklist for NTE players.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f131a",
+  "theme_color": "#13171f",
+  "icons": [
+    {
+      "src": "/pwa-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
