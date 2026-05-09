@@ -45,4 +45,28 @@ describe("storage normalization", () => {
     expect(migratedPreset?.enabled).toBe(false);
     expect(data.items.some((item) => item.id === "custom-test")).toBe(true);
   });
+
+  it("bounds imported custom text fields", () => {
+    const data = normalizeAppData({
+      items: [
+        {
+          id: `custom-${"x".repeat(500)}`,
+          title: "T".repeat(300),
+          description: "D".repeat(1000),
+          type: "daily",
+          category: "C".repeat(80),
+          source: "custom",
+          enabled: true,
+        },
+      ],
+      settings: { region: "asia", timezone: "Etc/GMT-8", dailyResetTime: "05:00", weeklyResetDay: 1 },
+      completions: {},
+    });
+
+    const imported = data.items.find((item) => item.source === "custom");
+    expect(imported?.id.length).toBeLessThanOrEqual(160);
+    expect(imported?.title.length).toBeLessThanOrEqual(140);
+    expect(imported?.description.length).toBeLessThanOrEqual(700);
+    expect(imported?.category.length).toBeLessThanOrEqual(48);
+  });
 });

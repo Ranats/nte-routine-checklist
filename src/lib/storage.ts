@@ -3,6 +3,10 @@ import { normalizeTimezone } from "./reset";
 import type { AppData, ChecklistItem, ResetSettings, ServerRegion } from "../types";
 
 const STORAGE_KEY = "nte-routine-checklist:v1";
+const MAX_TITLE_LENGTH = 140;
+const MAX_DESCRIPTION_LENGTH = 700;
+const MAX_CATEGORY_LENGTH = 48;
+const MAX_ID_LENGTH = 160;
 
 export function createDefaultData(): AppData {
   return {
@@ -95,12 +99,16 @@ function normalizeStoredItem(item: unknown, index: number): ChecklistItem | null
   if (!item || typeof item !== "object") return null;
   const raw = item as Partial<ChecklistItem>;
   if (typeof raw.id !== "string" || typeof raw.title !== "string" || !raw.title.trim()) return null;
+  const id = cleanText(raw.id, MAX_ID_LENGTH);
+  if (!id) return null;
+  const title = cleanText(raw.title, MAX_TITLE_LENGTH);
+  if (!title) return null;
   return {
-    id: raw.id,
-    title: raw.title.trim(),
-    description: typeof raw.description === "string" ? raw.description : "",
+    id,
+    title,
+    description: cleanText(raw.description, MAX_DESCRIPTION_LENGTH),
     type: raw.type === "weekly" ? "weekly" : "daily",
-    category: typeof raw.category === "string" && raw.category.trim() ? raw.category.trim() : "Uncategorized",
+    category: cleanText(raw.category, MAX_CATEGORY_LENGTH) || "Uncategorized",
     sortOrder: typeof raw.sortOrder === "number" ? raw.sortOrder : index * 10,
     enabled: typeof raw.enabled === "boolean" ? raw.enabled : true,
     source: raw.source === "custom" ? "custom" : "preset",
@@ -109,8 +117,17 @@ function normalizeStoredItem(item: unknown, index: number): ChecklistItem | null
   };
 }
 
+function cleanText(value: unknown, maxLength: number): string {
+  if (typeof value !== "string") return "";
+  return value.trim().slice(0, maxLength);
+}
+
 export function saveAppData(data: AppData) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...data, updatedAt: new Date().toISOString() }));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...data, updatedAt: new Date().toISOString() }));
+  } catch {
+    // Keep the current in-memory state even if browser storage quota is exhausted.
+  }
 }
 
 export function exportAppData(data: AppData) {

@@ -37,6 +37,7 @@ const EMPTY_DRAFT: ItemDraft = {
   type: "daily",
   category: "Custom",
 };
+const MAX_BACKUP_FILE_BYTES = 512 * 1024;
 
 function App() {
   const [data, setData] = useState<AppData>(() => loadAppData());
@@ -250,6 +251,7 @@ function App() {
     const file = event.target.files?.[0];
     if (!file) return;
     try {
+      if (file.size > MAX_BACKUP_FILE_BYTES) throw new Error("backup too large");
       const text = await file.text();
       const parsed = normalizeAppData(JSON.parse(text));
       if (parsed.items.length === 0) throw new Error("invalid backup");
@@ -308,7 +310,7 @@ function App() {
         <span>{t.unofficialBody}</span>
       </section>
 
-      <section className="risk-panel" aria-label="Risk controls">
+      <section className="risk-panel" aria-label={t.freshnessTitle}>
         <div className="risk-heading">
           <ShieldAlert aria-hidden="true" size={19} />
           <div>
@@ -587,6 +589,10 @@ function AdSlot({ language, enabled }: AdSlotProps) {
   useEffect(() => {
     if (!enabled) return;
     const scriptId = "adsbygoogle-script";
+    const existingScript = document.querySelector<HTMLScriptElement>('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
+    if (existingScript && !existingScript.id) {
+      existingScript.id = scriptId;
+    }
     if (!document.getElementById(scriptId)) {
       const script = document.createElement("script");
       script.id = scriptId;

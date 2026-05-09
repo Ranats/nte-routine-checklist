@@ -1,8 +1,26 @@
 {
   "name": "nte-routine-checklist",
   "version": "0.1.0",
-  "private": true,
   "description": "Unofficial local-first daily and weekly checklist for NTE players.",
+  "license": "MIT",
+  "homepage": "https://nte-routine-checklist.netlify.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ranats/nte-routine-checklist.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ranats/nte-routine-checklist/issues"
+  },
+  "funding": [
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/ranats"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats"
+    }
+  ],
   "type": "module",
   "scripts": {
     "start": "vite --host 127.0.0.1",

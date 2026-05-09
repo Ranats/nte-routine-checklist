@@ -17,7 +17,7 @@ Recommended public host: Netlify with a custom domain.
    - Build command: `npm run build`
    - Publish directory: `dist`
 4. Deploy once on the generated `.netlify.app` URL.
-5. Add a custom domain in Netlify.
+5. Add a custom domain if needed.
 6. Verify HTTPS is active.
 7. Open the site on mobile and desktop.
 
@@ -30,10 +30,9 @@ VITE_KOFI_URL=https://ko-fi.com/ranats
 VITE_GITHUB_SPONSORS_URL=https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats
 ```
 
-AdSense should stay empty until the site is approved:
+Display ads should stay empty until the site is approved:
 
 ```text
-VITE_ADSENSE_CLIENT_ID=ca-pub-2527726607213346
 VITE_ADSENSE_SLOT_ID=1234567890
 ```
 
@@ -47,13 +46,9 @@ Leave it empty for the normal release.
 
 ## Netlify Free Limit Notes
 
-As of the current Netlify pricing page, the Free plan has a 300 credit monthly limit. Netlify meters production deploys, bandwidth, compute, and web requests with credits. For this static app, the important meters are:
+Check Netlify's current pricing and usage documentation before relying on any specific free-plan limit. For this static app, the important meters are usually production deploys, bandwidth, and web requests.
 
-- production deploy: 15 credits each,
-- bandwidth: 20 credits per GB,
-- web requests: 2 credits per 10,000 requests.
-
-If a project reaches the monthly credit limit, Netlify says it enters a paused state until the next billing cycle. Netlify also says it sends email and in-app notifications at 50%, 75%, and 100% usage. Keep auto recharge disabled unless you intentionally want paid overage behavior.
+If a project reaches the monthly usage limit, hosting may pause until the next billing cycle or until billing is upgraded. Keep auto recharge disabled unless you intentionally want paid overage behavior.
 
 Practical guidance for this app:
 
@@ -61,20 +56,8 @@ Practical guidance for this app:
 - avoid large images and videos,
 - keep the app static with no Netlify Functions,
 - check Netlify `Usage & billing` after launch,
-- enable `VITE_HOSTING_STATUS_MESSAGE` only when you need to warn users.
-- use `.github/workflows/set-hosting-status.yml` to update the warning from GitHub Actions.
-
-Required GitHub repository secrets for the workflow:
-
-```text
-NETLIFY_AUTH_TOKEN
-NETLIFY_SITE_ID
-```
-
-See `NETLIFY_USAGE_AUTOMATION.md`.
-For a Codex App scheduled browser observer, see `CODEX_NETLIFY_MONITOR.md`.
-For email/Slack notification capture, see `NETLIFY_NOTIFICATION_CAPTURE.md`.
-For the recommended Gmail-based monitor, see `GMAIL_NETLIFY_USAGE_MONITOR.md`.
+- enable `VITE_HOSTING_STATUS_MESSAGE` only when you need to warn users,
+- keep private usage-monitoring workflows outside the public repository.
 
 ## Post-deploy Checks
 
@@ -95,4 +78,4 @@ Then verify on the deployed URL:
 - `/fan-content.html` loads,
 - install prompt/PWA behavior works on HTTPS,
 - no console errors,
-- no third-party scripts are loaded before monetization is explicitly enabled.
+- privacy/fan-content pages match the scripts currently loaded by the production site.

@@ -1,28 +1,35 @@
 # NTE Routine Checklist
 
-Unofficial daily and weekly checklist for Neverness to Everness.
+[![Live site](https://img.shields.io/badge/live-nte--routine--checklist.netlify.app-2dd4bf)](https://nte-routine-checklist.netlify.app/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-support-ff5e5b?logo=kofi&logoColor=white)](https://ko-fi.com/ranats)
+[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats)
 
-## Purpose
+Unofficial local-first daily and weekly checklist for Neverness to Everness.
 
-- Track daily and weekly routines in separate tabs.
-- Mark completed items with a check, dashed border, and dashed strikethrough.
-- Treat old completions as unchecked after the configured daily or weekly reset.
-- Auto-detect English, Japanese, or Simplified Chinese from browser language preferences, with manual switching.
-- Run without login, account linking, cloud sync, analytics, or ad SDKs.
-- Keep the app safe to distribute as a static PWA.
+https://nte-routine-checklist.netlify.app/
 
-## Risk Controls
+## Features
 
+- Daily and weekly routine tabs.
+- Completed items show a check mark, dashed border, and dashed strikethrough.
+- Completed state resets by configurable daily and weekly reset settings.
+- Browser-language detection for English, Japanese, and Simplified Chinese, with manual switching.
+- Editable preset items plus custom items.
+- Hide, restore, export, and import checklist data.
+- Local browser storage only. No login, account linking, cloud sync, or analytics.
+- Installable static PWA on HTTPS-supported hosts.
+
+## Public Safety Boundaries
+
+- This is an unofficial fan-made helper, not an official game product.
 - Presets are editable templates, not official game data.
-- The first screen says the tool is unofficial and fan-made.
-- The app shows the template review date and source links.
-- Server profiles use fixed server-time offsets by default:
-  - Asia: UTC+8
-  - America: UTC-5
-  - Europe: UTC+1
-- Users can switch to a custom IANA timezone when their server differs.
-- Import files are normalized before being accepted.
-- The service worker uses a network-first strategy and shows an update prompt when a new version is installed.
+- The app shows source links and the template review date.
+- The in-game task list and timers should be treated as correct if they differ from this app.
+- Checklist data remains in the user's browser `localStorage`.
+- The production site may load the Google AdSense script for site review or ads, but the app itself does not send checklist data to a backend.
+
+See [PRIVACY.md](PRIVACY.md), [FAN_CONTENT.md](FAN_CONTENT.md), and [SECURITY.md](SECURITY.md).
 
 ## Development
 
@@ -31,13 +38,9 @@ npm install
 npm run start -- --port 5174
 ```
 
-Open:
+Open `http://127.0.0.1:5174/`.
 
-```text
-http://127.0.0.1:5174/
-```
-
-Validation:
+## Validation
 
 ```powershell
 npm run typecheck
@@ -45,23 +48,34 @@ npm test
 npm run build
 ```
 
-## Distribution
+## Deployment
+
+This app is built as a static Vite site.
 
 ```powershell
 npm run build
 ```
 
-Deploy the generated `dist/` directory to Netlify. PWA behavior requires `localhost` or HTTPS. See `DEPLOYMENT.md`.
+Deploy the generated `dist/` directory to any static host. The current public deployment uses Netlify with:
+
+- build command: `npm run build`
+- publish directory: `dist`
+
+PWA features require `localhost` or HTTPS. See [DEPLOYMENT.md](DEPLOYMENT.md) for operational notes.
 
 ## Monetization
 
-The MVP does not include ads. It only reserves a passive sponsored area. Ko-fi and GitHub Sponsors links can be enabled with build-time environment variables. Before adding AdSense, AdMob, analytics, or any third-party SDK, update `PRIVACY.md`, add consent handling where required, and avoid ad placements that interfere with checkbox taps.
+Support links are enabled by default:
 
-See `DEPLOYMENT.md`, `MONETIZATION.md`, and `RELEASE_CHECKLIST.md` before publishing.
-For AdSense preparation, see `ADSENSE_READINESS.md`.
+- Ko-fi: https://ko-fi.com/ranats
+- GitHub Sponsors: https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats
 
-## Current Source Snapshot
+AdSense site verification uses the public publisher ID in `index.html`. Display ad placement remains controlled by `VITE_ADSENSE_SLOT_ID`, so the app can keep ads limited to the reserved sponsored area after review. See [MONETIZATION.md](MONETIZATION.md).
 
-- Mobalytics: daily reset every day, weekly reset every Monday, server reset at 5 AM local server time; updated May 8, 2026.
-- GameWith: daily checklist and weekly checklist; last updated May 9, 2026.
-- All Things How: weekly activities and Monday 5 AM server-time reset; published May 6, 2026.
+## Source Snapshot
+
+- Mobalytics: daily and weekly checklist source; updated May 8, 2026.
+- GameWith: daily and weekly checklist source; last updated May 9, 2026.
+- All Things How: weekly activity source; published May 6, 2026.
+
+These sources are used only as editable template references.

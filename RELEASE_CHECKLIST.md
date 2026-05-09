@@ -26,9 +26,9 @@ Current external review snapshot:
 - Start with one passive banner slot only.
 - Do not place ads between a checkbox and its task text.
 - Do not use rewarded ads that imply game rewards.
-- Add an updated privacy policy before adding AdSense, AdMob, analytics, or any third-party SDK.
+- Keep privacy pages aligned with the active AdSense site-review script and any future ad slots.
 - Add consent handling for cookies/tracking where required.
-- Confirm the app footer still says that no third-party scripts are loaded before shipping the no-ad MVP.
+- Confirm the app footer accurately describes third-party scripts before shipping.
 
 ## PWA
 

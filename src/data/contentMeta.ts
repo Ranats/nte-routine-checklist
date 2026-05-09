@@ -1,6 +1,6 @@
 export const CONTENT_REVIEW = {
   reviewedAt: "2026-05-10",
-  appVersion: "0.1.1-risk-reduced",
+  appVersion: "0.1.2",
   resetSummary:
     "Default Asia profile uses 05:00 server time. Sources agree on daily reset at 05:00 server time and weekly reset on Monday, but regional conversions can differ by server and daylight saving.",
   sources: [
