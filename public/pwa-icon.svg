@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="NTE checklist icon">
+  <rect width="128" height="128" rx="24" fill="#13171f"/>
+  <path d="M32 35h64v58H32z" fill="#eef2f6"/>
+  <path d="M44 51h10l7 7 22-23 7 7-29 31-17-16z" fill="#d3455b"/>
+  <path d="M44 86h42" stroke="#13171f" stroke-width="8" stroke-linecap="round"/>
+</svg>

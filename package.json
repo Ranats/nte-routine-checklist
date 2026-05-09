@@ -1,0 +1,28 @@
+{
+  "name": "nte-routine-checklist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unofficial local-first daily and weekly checklist for NTE players.",
+  "type": "module",
+  "scripts": {
+    "start": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.10",
+    "typescript": "^5.9.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "lucide-react": "^0.468.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "vitest": "^3.2.4",
+    "jsdom": "^27.0.0"
+  }
+}
