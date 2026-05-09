@@ -422,14 +422,24 @@ export const presetText: Record<Language, Record<string, PresetText>> = {
 export function detectLanguage(): Language {
   const saved = localStorage.getItem("nte-routine-checklist:language");
   if (isLanguage(saved)) return saved;
-  const browserLanguage = navigator.language.toLowerCase();
-  if (browserLanguage.startsWith("ja")) return "ja";
-  if (browserLanguage.startsWith("zh")) return "zh";
+  const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const browserLanguage of browserLanguages) {
+    const language = normalizeBrowserLanguage(browserLanguage);
+    if (language) return language;
+  }
   return "en";
 }
 
 export function isLanguage(value: unknown): value is Language {
   return value === "en" || value === "ja" || value === "zh";
+}
+
+function normalizeBrowserLanguage(value: string | undefined): Language | null {
+  const browserLanguage = value?.toLowerCase() ?? "";
+  if (browserLanguage.startsWith("ja")) return "ja";
+  if (browserLanguage.startsWith("zh")) return "zh";
+  if (browserLanguage.startsWith("en")) return "en";
+  return null;
 }
 
 export function getDisplayItem(item: ChecklistItem, language: Language) {

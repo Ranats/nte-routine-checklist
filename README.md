@@ -7,6 +7,7 @@ Unofficial daily and weekly checklist for Neverness to Everness.
 - Track daily and weekly routines in separate tabs.
 - Mark completed items with a check, dashed border, and dashed strikethrough.
 - Treat old completions as unchecked after the configured daily or weekly reset.
+- Auto-detect English, Japanese, or Simplified Chinese from browser language preferences, with manual switching.
 - Run without login, account linking, cloud sync, analytics, or ad SDKs.
 - Keep the app safe to distribute as a static PWA.
 
