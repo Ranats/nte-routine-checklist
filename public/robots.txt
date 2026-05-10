@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nte-routine-checklist.netlify.app/sitemap.xml

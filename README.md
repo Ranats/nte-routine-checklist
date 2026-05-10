@@ -63,6 +63,15 @@ Deploy the generated `dist/` directory to any static host. The current public de
 
 PWA features require `localhost` or HTTPS. See [DEPLOYMENT.md](DEPLOYMENT.md) for operational notes.
 
+## Distribution
+
+The Netlify site is the canonical app URL. Additional listings should point users back to the Netlify app so checklist data stays in one browser origin.
+
+- Search indexing checklist: [docs/distribution/SEARCH_INDEXING.md](docs/distribution/SEARCH_INDEXING.md)
+- itch.io listing draft: [docs/distribution/ITCH_IO_LISTING.md](docs/distribution/ITCH_IO_LISTING.md)
+- Social and video copy: [docs/distribution/SOCIAL_AND_VIDEO.md](docs/distribution/SOCIAL_AND_VIDEO.md)
+- GitHub topics: [docs/distribution/GITHUB_TOPICS.md](docs/distribution/GITHUB_TOPICS.md)
+
 ## Monetization
 
 Support links are enabled by default:
