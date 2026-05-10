@@ -522,7 +522,7 @@ function App() {
         </section>
       ) : null}
 
-      <AdSlot language={language} enabled={adSenseEnabled} />
+      {adSenseEnabled ? <AdSlot language={language} enabled={adSenseEnabled} /> : null}
 
       {hasSupportLinks() ? (
         <section className="support-panel" aria-label={t.supportLabel}>
@@ -553,6 +553,7 @@ function App() {
 
       <footer className="site-footer">
         <span>{t.footerNoThirdParty}</span>
+        <a href={languageHref(language, "guide")}>{t.guide}</a>
         <a href={languageHref(language, "privacy")}>{t.privacy}</a>
         <a href={languageHref(language, "fan-content")}>{t.fanContent}</a>
       </footer>
@@ -615,13 +616,7 @@ function AdSlot({ language, enabled }: AdSlotProps) {
     }, 0);
   }, [enabled]);
 
-  if (!enabled) {
-    return (
-      <aside className="ad-slot" aria-label={t.adSlotLabel}>
-        <span>{t.adSlotText}</span>
-      </aside>
-    );
-  }
+  if (!enabled) return null;
 
   return (
     <aside className="ad-slot ad-slot-live" aria-label={t.adSlotLabel}>

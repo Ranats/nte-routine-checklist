@@ -69,6 +69,7 @@ type Messages = {
   supportBody: string;
   hostingStatus: string;
   footerNoThirdParty: string;
+  guide: string;
   privacy: string;
   fanContent: string;
   language: string;
@@ -90,7 +91,7 @@ export const messages: Record<Language, Messages> = {
     templateReviewed: "Template reviewed",
     appVersion: "App version",
     safetyPosture: "Data boundary",
-    safetyValue: "Local storage / AdSense review",
+    safetyValue: "Local browser storage",
     safetyValueWithAds: "Local-only data / ad-supported",
     checklistSwitcher: "Checklist switcher",
     resetInfo: "Reset information",
@@ -127,13 +128,14 @@ export const messages: Record<Language, Messages> = {
     import: "Import",
     importFailed: "Import failed. Please select an exported NTE checklist JSON file.",
     hiddenItems: "Hidden items",
-    adSlotLabel: "Future ad slot",
-    adSlotText: "Sponsored area reserved",
+    adSlotLabel: "Advertisement",
+    adSlotText: "Advertisement",
     supportLabel: "Support links",
     supportTitle: "Support this project",
     supportBody: "Optional support helps keep the checklist maintained after NTE updates.",
     hostingStatus: "Hosting status",
-    footerNoThirdParty: "Checklist data stays in this browser. AdSense may load for site review or ads.",
+    footerNoThirdParty: "Checklist data stays in this browser.",
+    guide: "Guide",
     privacy: "Privacy",
     fanContent: "Fan content notice",
     language: "Language",
@@ -153,7 +155,7 @@ export const messages: Record<Language, Messages> = {
     templateReviewed: "テンプレート確認日",
     appVersion: "アプリ版",
     safetyPosture: "データの扱い",
-    safetyValue: "ローカル保存 / AdSense審査コード",
+    safetyValue: "ブラウザ内ローカル保存",
     safetyValueWithAds: "データはローカル保存 / 広告あり",
     checklistSwitcher: "チェックリスト切り替え",
     resetInfo: "リセット情報",
@@ -190,13 +192,14 @@ export const messages: Record<Language, Messages> = {
     import: "インポート",
     importFailed: "読み込みに失敗しました。エクスポート済みのNTE checklist JSONを選択してください。",
     hiddenItems: "非表示の項目",
-    adSlotLabel: "将来の広告枠",
-    adSlotText: "スポンサー枠を予約中",
+    adSlotLabel: "広告",
+    adSlotText: "広告",
     supportLabel: "支援リンク",
     supportTitle: "このプロジェクトを支援",
     supportBody: "任意の支援は、NTE更新後もチェックリストを保守する助けになります。",
     hostingStatus: "ホスティング状況",
-    footerNoThirdParty: "チェックリストのデータはこのブラウザ内に保存されます。AdSenseは審査または広告のために読み込まれる場合があります。",
+    footerNoThirdParty: "チェックリストのデータはこのブラウザ内に保存されます。",
+    guide: "使い方",
     privacy: "プライバシー",
     fanContent: "ファンコンテンツ表記",
     language: "言語",
@@ -215,7 +218,7 @@ export const messages: Record<Language, Messages> = {
     templateReviewed: "模板确认日期",
     appVersion: "应用版本",
     safetyPosture: "数据边界",
-    safetyValue: "本地存储 / AdSense审核代码",
+    safetyValue: "浏览器本地存储",
     safetyValueWithAds: "数据仅本地存储 / 有广告支持",
     checklistSwitcher: "清单切换",
     resetInfo: "重置信息",
@@ -252,13 +255,14 @@ export const messages: Record<Language, Messages> = {
     import: "导入",
     importFailed: "导入失败。请选择导出的NTE checklist JSON文件。",
     hiddenItems: "隐藏事项",
-    adSlotLabel: "未来广告位",
-    adSlotText: "预留赞助区域",
+    adSlotLabel: "广告",
+    adSlotText: "广告",
     supportLabel: "支持链接",
     supportTitle: "支持这个项目",
     supportBody: "可选支持可以帮助我们在NTE更新后继续维护清单。",
     hostingStatus: "托管状态",
-    footerNoThirdParty: "清单数据保存在此浏览器中。AdSense可能会为网站审核或广告加载。",
+    footerNoThirdParty: "清单数据保存在此浏览器中。",
+    guide: "使用指南",
     privacy: "隐私",
     fanContent: "粉丝内容声明",
     language: "语言",
@@ -455,7 +459,7 @@ export function getDisplayItem(item: ChecklistItem, language: Language) {
   };
 }
 
-export function languageHref(language: Language, page: "privacy" | "fan-content") {
+export function languageHref(language: Language, page: "guide" | "privacy" | "fan-content") {
   if (language === "en") return `/${page}.html`;
   return `/${page}.${language}.html`;
 }

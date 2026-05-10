@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="NTE: Neverness to Everness向けの非公式デイリー・ウィークリーチェックリスト"
+      content="Unofficial daily and weekly checklist for NTE: Neverness to Everness. Track routine tasks locally in your browser."
     />
     <meta property="og:title" content="NTE Routine Checklist" />
     <meta property="og:site_name" content="NTE Routine Checklist" />
@@ -33,6 +33,7 @@
     <link rel="alternate" hreflang="ja" href="https://nte-routine-checklist.netlify.app/" />
     <link rel="alternate" hreflang="zh-Hans" href="https://nte-routine-checklist.netlify.app/" />
     <link rel="alternate" hreflang="x-default" href="https://nte-routine-checklist.netlify.app/" />
+    <link rel="icon" href="/pwa-icon.svg" type="image/svg+xml" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <script
       async
@@ -42,7 +43,29 @@
     <title>NTE Routine Checklist</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <main style="max-width: 820px; margin: 40px auto; padding: 0 20px; font-family: system-ui, sans-serif; line-height: 1.7;">
+        <h1>NTE Routine Checklist</h1>
+        <p>
+          NTE Routine Checklist is an unofficial fan-made daily and weekly routine tracker for
+          Neverness to Everness. It helps players review routine tasks, mark completed items, adjust
+          reset assumptions, hide tasks that do not apply, and keep checklist data in browser local
+          storage.
+        </p>
+        <p>
+          The preset checklist entries are editable templates based on public routine information.
+          If the in-game task list or timer differs, use the in-game information as the source of
+          truth and adjust the checklist for your own account.
+        </p>
+        <p>
+          <a href="/guide.html">Guide</a> /
+          <a href="/guide.ja.html">Japanese guide</a> /
+          <a href="/guide.zh.html">Simplified Chinese guide</a> /
+          <a href="/privacy.html">Privacy</a> /
+          <a href="/fan-content.html">Fan content notice</a>
+        </p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

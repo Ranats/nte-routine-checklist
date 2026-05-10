@@ -30,11 +30,11 @@ VITE_KOFI_URL=https://ko-fi.com/ranats
 VITE_GITHUB_SPONSORS_URL=https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats
 ```
 
-Display ads should stay empty until the site is approved:
+Keep display ads disabled until the site is approved. Do not set `VITE_ADSENSE_SLOT_ID` during review unless you intentionally want a live ad unit rendered in the checklist page.
 
 ```text
 VITE_ADSENSE_CLIENT_ID=ca-pub-2527726607213346
-VITE_ADSENSE_SLOT_ID=1234567890
+VITE_ADSENSE_SLOT_ID=
 ```
 
 Optional hosting status message:
