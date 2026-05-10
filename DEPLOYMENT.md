@@ -33,6 +33,7 @@ VITE_GITHUB_SPONSORS_URL=https://github.com/sponsors/Ranats?frequency=recurring&
 Display ads should stay empty until the site is approved:
 
 ```text
+VITE_ADSENSE_CLIENT_ID=ca-pub-2527726607213346
 VITE_ADSENSE_SLOT_ID=1234567890
 ```
 
@@ -44,20 +45,9 @@ VITE_HOSTING_STATUS_MESSAGE=Hosting is currently healthy. If this page pauses be
 
 Leave it empty for the normal release.
 
-## Netlify Free Limit Notes
+## Repository Scope
 
-Check Netlify's current pricing and usage documentation before relying on any specific free-plan limit. For this static app, the important meters are usually production deploys, bandwidth, and web requests.
-
-If a project reaches the monthly usage limit, hosting may pause until the next billing cycle or until billing is upgraded. Keep auto recharge disabled unless you intentionally want paid overage behavior.
-
-Practical guidance for this app:
-
-- keep deploys batched instead of publishing every small text change,
-- avoid large images and videos,
-- keep the app static with no Netlify Functions,
-- check Netlify `Usage & billing` after launch,
-- enable `VITE_HOSTING_STATUS_MESSAGE` only when you need to warn users,
-- keep private usage-monitoring workflows outside the public repository.
+Netlify only needs the app source, public static files, package files, and `netlify.toml`. Generated distribution media and operational notes are not required for GitHub-connected deploys.
 
 ## Post-deploy Checks
 

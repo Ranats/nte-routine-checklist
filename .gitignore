@@ -8,3 +8,4 @@ dist/
 .env.test.local
 .env.production.local
 nte-routine-checklist-*.png
+/internal/

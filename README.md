@@ -2,12 +2,21 @@
 
 [![Live site](https://img.shields.io/badge/live-nte--routine--checklist.netlify.app-2dd4bf)](https://nte-routine-checklist.netlify.app/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Ko-fi](https://img.shields.io/badge/Ko--fi-support-ff5e5b?logo=kofi&logoColor=white)](https://ko-fi.com/ranats)
-[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsors-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats)
 
 Unofficial local-first daily and weekly checklist for Neverness to Everness.
 
 https://nte-routine-checklist.netlify.app/
+
+## What this repository is
+
+This is the public source for the static checklist app published on Netlify. It is meant to be understandable as an OSS project first:
+
+- the app source lives in `src/`,
+- public policy pages live in `public/`,
+- deployment configuration is in `netlify.toml`,
+- setup, validation, and contribution notes are kept in the root docs.
+
+This repository intentionally excludes non-runtime operational notes and generated campaign media.
 
 ## Features
 
@@ -29,7 +38,7 @@ https://nte-routine-checklist.netlify.app/
 - Checklist data remains in the user's browser `localStorage`.
 - The production site may load the Google AdSense script for site review or ads, but the app itself does not send checklist data to a backend.
 
-See [PRIVACY.md](PRIVACY.md), [FAN_CONTENT.md](FAN_CONTENT.md), and [SECURITY.md](SECURITY.md).
+See [PRIVACY.md](PRIVACY.md), [FAN_CONTENT.md](FAN_CONTENT.md), [SECURITY.md](SECURITY.md), and [SUPPORT.md](SUPPORT.md).
 
 ## Development
 
@@ -63,23 +72,14 @@ Deploy the generated `dist/` directory to any static host. The current public de
 
 PWA features require `localhost` or HTTPS. See [DEPLOYMENT.md](DEPLOYMENT.md) for operational notes.
 
-## Distribution
+## Support
 
-The Netlify site is the canonical app URL. Additional listings should point users back to the Netlify app so checklist data stays in one browser origin.
-
-- Search indexing checklist: [docs/distribution/SEARCH_INDEXING.md](docs/distribution/SEARCH_INDEXING.md)
-- itch.io listing draft: [docs/distribution/ITCH_IO_LISTING.md](docs/distribution/ITCH_IO_LISTING.md)
-- Social and video copy: [docs/distribution/SOCIAL_AND_VIDEO.md](docs/distribution/SOCIAL_AND_VIDEO.md)
-- GitHub topics: [docs/distribution/GITHUB_TOPICS.md](docs/distribution/GITHUB_TOPICS.md)
-
-## Monetization
-
-Support links are enabled by default:
+The app is free to use. Optional support links are documented in [SUPPORT.md](SUPPORT.md):
 
 - Ko-fi: https://ko-fi.com/ranats
 - GitHub Sponsors: https://github.com/sponsors/Ranats?frequency=recurring&sponsor=Ranats
 
-AdSense site verification uses the public publisher ID in `index.html`. Display ad placement remains controlled by `VITE_ADSENSE_SLOT_ID`, so the app can keep ads limited to the reserved sponsored area after review. See [MONETIZATION.md](MONETIZATION.md).
+The public page may load the AdSense review script. Display ad placement remains controlled by `VITE_ADSENSE_SLOT_ID`, so ads can stay limited to the reserved sponsored area after review.
 
 ## Source Snapshot
 
